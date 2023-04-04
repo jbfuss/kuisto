@@ -8,6 +8,7 @@ body {
   }
 
   mat-form-field {
+    width: 100%;
     --mdc-shape-small: 8px;
 
     &.without-error-container .mat-mdc-form-field-subscript-wrapper{
@@ -39,4 +40,5 @@ body {
       }
     }
   }
+
 }

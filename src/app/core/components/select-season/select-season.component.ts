@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
-import {Season} from '../../../season-recipe/season-recipe-list/season-recipe-list.component';
 import {MatSelectModule} from '@angular/material/select';
+import {Season} from '../../../recipe/_models/season';
 
 @Component({
   selector: 'kuisto-select-season',
