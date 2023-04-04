@@ -1,0 +1,7 @@
+button.mdc-button{
+  height: 45px;
+  border-radius: 50px;
+  &.mat-primary {
+    --mdc-filled-button-container-color: var(--blue);
+  }
+}

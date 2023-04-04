@@ -1,0 +1,14 @@
+:host {
+  .header, .week-days {
+    padding: 20px;
+  }
+
+  .week-days {
+    border-top: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey);
+
+    button {
+      background: var(--grey);
+    }
+  }
+}

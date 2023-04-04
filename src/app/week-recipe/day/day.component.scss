@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &.today {
+    color: var(--blue);
+  }
+
+  .day {
+    font-weight: 500;
+    font-size: 40px;
+  }
+
+  .month, .week-day {
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: var(--font-large-size);
+    color: var(--grey-dark);
+  }
+}

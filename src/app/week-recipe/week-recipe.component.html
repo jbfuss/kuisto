@@ -1,1 +1,15 @@
-{{this.monday | date: 'dd/MM/yyyy'}}
+
+<div class="d-flex align-items-center justify-content-between header">
+  <h1>Recette de la semaine</h1>
+  <button mat-flat-button color="primary">Ajouter une recette</button>
+</div>
+
+<div class="d-flex align-items-center week-days">
+  <button mat-icon-button (click)="prevWeek()">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+  <kuisto-day *ngFor="let day of weekDays" [day]="day"></kuisto-day>
+  <button mat-icon-button (click)="nextWeek()">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+</div>

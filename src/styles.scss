@@ -1,16 +1,37 @@
+@import "assets/scss/grid";
+@import "assets/scss/material";
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
 
 html, body {
   --blue: #3b60e4;
   --light-blue: #ccdbfd;
   --black: #080708;
 
-  --grey: #d8d8d8;
-  --grey-light: #F9F9F7;
-  --grey-middle: #DCDCD9;
-  --grey-dark: #999896;
+  --grey: #e9ecef;
+  --grey-light: #f8f9fa;
+  --grey-middle: #ced4da;
+  --grey-dark: #6c757d;
+
+  --font-h1-size: 24px;
+  --font-large-size: 16px;
+  --font-medium-size: 14px;
+  --font-small-size: 12px;
 
   background: var(--grey-light);
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+  margin: 0;
+  color: var(--black);
+  font-family: Inter, Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: var(--font-h1-size);
+  font-weight: 500;
+}
+h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
