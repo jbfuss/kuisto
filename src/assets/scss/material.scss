@@ -1,7 +1,42 @@
-button.mdc-button{
-  height: 45px;
-  border-radius: 50px;
-  &.mat-primary {
-    --mdc-filled-button-container-color: var(--blue);
+body {
+  button.mdc-button.mat-mdc-button-base {
+    height: 45px;
+    border-radius: 50px;
+    &.mat-primary {
+      --mdc-filled-button-container-color: var(--blue);
+    }
+  }
+
+  mat-form-field {
+    --mdc-shape-small: 8px;
+
+    &.without-error-container .mat-mdc-form-field-subscript-wrapper{
+      display: none;
+    }
+
+  }
+
+  .mdc-menu-surface.mat-mdc-select-panel {
+    margin-top: -8px;
+  }
+
+
+  .kuisto-modal {
+
+    .mat-mdc-dialog-container .mat-mdc-dialog-surface {
+      padding: 80px 95px;
+      position: relative;
+
+      .mat-mdc-dialog-content {
+        padding: 2px;
+      }
+
+      mat-icon[mat-dialog-close] {
+        position: absolute;
+        cursor: pointer;
+        top: 30px;
+        right: 30px;
+      }
+    }
   }
 }

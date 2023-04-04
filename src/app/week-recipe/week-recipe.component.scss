@@ -1,12 +1,11 @@
 :host {
   .header, .week-days {
     padding: 20px;
+    border-bottom: 1px solid var(--grey);
+
   }
 
   .week-days {
-    border-top: 1px solid var(--grey);
-    border-bottom: 1px solid var(--grey);
-
     button {
       background: var(--grey);
     }
