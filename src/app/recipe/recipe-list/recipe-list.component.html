@@ -10,4 +10,6 @@
 <kuisto-recipe-list-filters></kuisto-recipe-list-filters>
 <mat-spinner *ngIf="loading$ | async"></mat-spinner>
 
-<div *ngFor="let recipe of recipes$ | async">{{recipe.name}}</div>
+<div class="d-flex recipes">
+  <kuisto-recipe-card *ngFor="let recipe of recipes$ | async" [recipe]="recipe"></kuisto-recipe-card>
+</div>

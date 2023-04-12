@@ -2,12 +2,10 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {AddRecipeDialogComponent} from '../core/dialog/add-recipe-dialog/add-recipe-dialog.component';
 import {ModalService} from '../../core/modal/modal.service';
 import {Store} from '@ngrx/store';
-import {RecipeState} from '../core/state/recipes.reducer';
 import {Observable, tap} from 'rxjs';
 import {Recipe} from '../_models/recipe';
-import {RecipesActions} from '../core/state/recipes.actions';
+import {RecipesActions} from '../core/state';
 import {RECIPES_SELECTORS} from '../core/state';
-import {selectFilteredRecipes} from '../core/state/recipes.selectors';
 
 @Component({
   selector: 'kuisto-season-recipe-list',

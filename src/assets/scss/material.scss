@@ -18,6 +18,10 @@ body {
     width: 100%;
     --mdc-shape-small: 8px;
 
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+      background-color: white;
+    }
+
     &.without-error-container .mat-mdc-form-field-subscript-wrapper{
       display: none;
     }

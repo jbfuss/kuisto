@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  flex-direction: column;
+  background: white;
+
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  padding: 20px 20px 0;
+
+  a {
+    width: 100%;
+    padding-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--grey-dark);
+    border-top: 1px solid var(--grey-middle);
+  }
+}

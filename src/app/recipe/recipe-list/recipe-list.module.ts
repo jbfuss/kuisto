@@ -10,6 +10,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { RecipeListFiltersComponent } from './recipe-list-filters/recipe-list-filters.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import {RecipeCardComponent} from '../core/components/recipe-card/recipe-card.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {MatInputModule} from '@angular/material/input';
     SelectSeasonComponent,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    RecipeCardComponent
   ]
 })
 export class RecipeListModule { }
