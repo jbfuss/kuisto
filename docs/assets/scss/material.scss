@@ -1,0 +1,55 @@
+body {
+  button.mdc-button.mat-mdc-button-base {
+    height: 45px;
+    min-width: 150px;
+    border-radius: 8px;
+
+    --mdc-filled-button-container-color: var(--grey-light);
+
+    &.round {
+      border-radius: 50px;
+    }
+    &.mat-primary {
+      --mdc-filled-button-container-color: var(--blue);
+    }
+  }
+
+  mat-form-field {
+    width: 100%;
+    --mdc-shape-small: 8px;
+
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+      background-color: white;
+    }
+
+    &.without-error-container .mat-mdc-form-field-subscript-wrapper{
+      display: none;
+    }
+
+  }
+
+  .mdc-menu-surface.mat-mdc-select-panel {
+    margin-top: -8px;
+  }
+
+
+  .kuisto-modal {
+
+    .mat-mdc-dialog-container .mat-mdc-dialog-surface {
+      padding: 80px 95px;
+      position: relative;
+
+      .mat-mdc-dialog-content {
+        padding: 2px;
+      }
+
+      mat-icon[mat-dialog-close] {
+        position: absolute;
+        cursor: pointer;
+        top: 30px;
+        right: 30px;
+      }
+    }
+  }
+
+}
