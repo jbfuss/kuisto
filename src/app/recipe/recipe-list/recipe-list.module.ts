@@ -6,6 +6,7 @@ import {RECIPE_LIST_ROUTING} from './recipe-list.routing';
 import {SelectSeasonComponent} from '../../core/components/select-season/select-season.component';
 import {MatIconModule} from '@angular/material/icon';
 import {ModalModule} from '../../core/modal/modal.module';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {ModalModule} from '../../core/modal/modal.module';
     MatButtonModule,
     MatIconModule,
     RECIPE_LIST_ROUTING,
-    SelectSeasonComponent
+    SelectSeasonComponent,
+    MatProgressSpinnerModule
   ]
 })
 export class RecipeListModule { }

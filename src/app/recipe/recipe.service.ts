@@ -9,6 +9,6 @@ export class RecipeService {
   constructor() { }
 
   list(season: Season ): Observable<Recipe[]> {
-    return of([]);
+    return of([{id: '123', link: 'j', name: 'eokr'}]);
   }
 }

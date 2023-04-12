@@ -1,7 +1,8 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {ActivatedRouteSnapshot, ResolveFn, RouterModule, RouterStateSnapshot, Routes} from '@angular/router';
 import {WeekRecipeModule} from './week-recipe/week-recipe.module';
 import {RecipeModule} from './recipe.module';
+import {Recipe} from './_models/recipe';
 
 const routes: Routes = [
   {
@@ -19,6 +20,5 @@ const routes: Routes = [
     ]
   }
 ];
-
 
 export const RECIPE_ROUTING: ModuleWithProviders<RecipeModule> = RouterModule.forChild(routes);

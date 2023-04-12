@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddRecipeDialogComponent } from './add-recipe-dialog/add-recipe-dialog.component';
+import { AddRecipeDialogComponent } from './dialog/add-recipe-dialog/add-recipe-dialog.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {ReactiveFormsModule} from '@angular/forms';

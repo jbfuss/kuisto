@@ -10,3 +10,6 @@
 
 <kuisto-select-season></kuisto-select-season>
 
+<mat-spinner *ngIf="loading$ | async"></mat-spinner>
+
+<div *ngFor="let recipe of recipes$ | async">{{recipe.id}}</div>
