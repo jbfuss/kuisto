@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {RecipesEffects} from './recipes.effects';
-import {RecipeService} from '../recipe.service';
+import {RecipeService} from '../../recipe.service';
 import {recipesFeature} from './recipes.reducer';
 @NgModule({
   providers: [

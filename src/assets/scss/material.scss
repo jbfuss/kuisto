@@ -1,7 +1,14 @@
 body {
   button.mdc-button.mat-mdc-button-base {
     height: 45px;
-    border-radius: 50px;
+    min-width: 150px;
+    border-radius: 8px;
+
+    --mdc-filled-button-container-color: var(--grey-light);
+
+    &.round {
+      border-radius: 50px;
+    }
     &.mat-primary {
       --mdc-filled-button-container-color: var(--blue);
     }

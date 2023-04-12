@@ -1,0 +1,31 @@
+<mat-icon class="close" mat-dialog-close (click)="close()">close</mat-icon>
+<h1>Ajouter une recette</h1>
+<div mat-dialog-content>
+
+  <form [formGroup]="recipeForm">
+    <mat-form-field>
+      <mat-label>Lien de la recette</mat-label>
+      <input matInput formControlName="link">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Nom de la recette</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <kuisto-select-season controlName="season"></kuisto-select-season>
+  </form>
+
+
+  <div class="actions d-flex justify-content-center">
+    <button mat-flat-button (click)="close()">
+      Annuler
+    </button>
+
+    <button mat-flat-button color="primary" [disabled]="!recipeForm.valid" (click)="addRecipe()">
+      Ajouter
+    </button>
+
+  </div>
+
+</div>

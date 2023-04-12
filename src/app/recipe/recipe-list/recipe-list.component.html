@@ -3,13 +3,11 @@
   <div class="d-flex align-items-center">
     <h1>Liste des recettes</h1>
   </div>
-  <button mat-flat-button color="primary" (click)="addRecipe()">
+  <button mat-flat-button class="round" color="primary" (click)="addRecipe()">
     Ajouter une recette
   </button>
 </div>
-
-<kuisto-select-season></kuisto-select-season>
-
+<kuisto-recipe-list-filters></kuisto-recipe-list-filters>
 <mat-spinner *ngIf="loading$ | async"></mat-spinner>
 
-<div *ngFor="let recipe of recipes$ | async">{{recipe.id}}</div>
+<div *ngFor="let recipe of recipes$ | async">{{recipe.name}}</div>

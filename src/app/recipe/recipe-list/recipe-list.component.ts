@@ -1,13 +1,13 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {AddRecipeDialogComponent} from '../dialog/add-recipe-dialog/add-recipe-dialog.component';
+import {AddRecipeDialogComponent} from '../core/dialog/add-recipe-dialog/add-recipe-dialog.component';
 import {ModalService} from '../../core/modal/modal.service';
 import {Store} from '@ngrx/store';
-import {RecipeState} from '../state/recipes.reducer';
+import {RecipeState} from '../core/state/recipes.reducer';
 import {Observable, tap} from 'rxjs';
 import {Recipe} from '../_models/recipe';
-import {RecipesActions} from '../state/recipes.actions';
-import {Season} from '../_models/season';
-import {RECIPES_SELECTORS} from '../state';
+import {RecipesActions} from '../core/state/recipes.actions';
+import {RECIPES_SELECTORS} from '../core/state';
+import {selectFilteredRecipes} from '../core/state/recipes.selectors';
 
 @Component({
   selector: 'kuisto-season-recipe-list',
@@ -16,17 +16,17 @@ import {RECIPES_SELECTORS} from '../state';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RecipeListComponent implements OnInit {
-  recipes$: Observable<Recipe[]> = this.store.select(RECIPES_SELECTORS.selectRecipes);
+  recipes$: Observable<Recipe[]> = this.store.select(RECIPES_SELECTORS.selectFilteredRecipes);
   loading$: Observable<boolean> = this.store.select(RECIPES_SELECTORS.selectIsLoading);
   constructor(private readonly modalService: ModalService,
               private readonly store: Store) {
   }
 
-  addRecipe() {
-    this.modalService.open(AddRecipeDialogComponent);
+  ngOnInit(): void {
+    this.store.dispatch(RecipesActions.loadRecipes());
   }
 
-  ngOnInit(): void {
-    this.store.dispatch(RecipesActions.getRecipes({season: Season.Winter}));
+  addRecipe() {
+    this.modalService.open(AddRecipeDialogComponent);
   }
 }

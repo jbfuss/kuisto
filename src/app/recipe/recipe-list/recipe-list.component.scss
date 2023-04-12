@@ -1,17 +1,11 @@
 :host {
   .header {
     padding: 20px;
-    border-bottom: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey-middle);
   }
 
   kuisto-select-season {
     margin-left: 20px;
-  }
-
-  mat-spinner {
-    position: fixed;
-    left: 50%;
-    top: 50%;
   }
 
 }
