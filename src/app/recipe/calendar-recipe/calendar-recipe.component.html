@@ -14,9 +14,9 @@
 
     <div class="d-flex recipes"
          cdkDropList
-         [cdkDropListData]="recipes"
+         [cdkDropListData]="recipes$ | async"
          (cdkDropListDropped)="drop($event)">
-      <kuisto-recipe-card *ngFor="let recipe of recipes" [recipe]="recipe"></kuisto-recipe-card>
+      <kuisto-recipe-card *ngFor="let recipe of recipes$ | async" [recipe]="recipe"></kuisto-recipe-card>
     </div>
   </div>
 

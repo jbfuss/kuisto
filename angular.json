@@ -36,7 +36,8 @@
             ],
             "scripts": [],
             "allowedCommonJsDependencies": [
-              "@types/uuid"
+              "@types/uuid",
+              "lodash.clonedeep"
             ]
           },
           "configurations": {

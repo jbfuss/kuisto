@@ -3,7 +3,8 @@ import {ScheduledRecipes} from './_models/scheduled-recipe';
 import {Recipe} from '../_models/recipe';
 import {Store} from '@ngrx/store';
 import {Observable, of} from 'rxjs';
-// import {ScheduledRecipesActions} from './state/scheduled-recipes.actions';
+import {ScheduledRecipesActions} from './state/scheduled-recipes.actions';
+import cloneDeep from 'lodash.clonedeep';
 
 @Injectable()
 export class ScheduledRecipeService {
@@ -16,16 +17,17 @@ export class ScheduledRecipeService {
     return recipesJson ? JSON.parse(recipesJson) : [];
   }
 
-  addScheduledRecipes(day: Date, recipe: Recipe ): Observable<Recipe> {
+  addScheduledRecipes(day: string, recipe: Recipe ): Observable<Recipe> {
     const scheduledRecipes = ScheduledRecipeService.addRecipe(this.list(), day, recipe);
     localStorage.setItem(this.scheduledRecipesKey, JSON.stringify(scheduledRecipes));
 
-    // this.store.dispatch(ScheduledRecipesActions.addScheduledRecipe({day, recipe}));
+    this.store.dispatch(ScheduledRecipesActions.addScheduledRecipe({day, recipe}));
     return of(recipe);
   }
 
-  static addRecipe(scheduledRecipeList: ScheduledRecipes[], day: Date, recipe: Recipe) {
-    let scheduledRecipe = scheduledRecipeList.find((item) => item.day === day);
+  static addRecipe(scheduledRecipes: ScheduledRecipes[], day: string, recipe: Recipe) {
+    const scheduledRecipeList = cloneDeep(scheduledRecipes);
+    let scheduledRecipe = scheduledRecipeList.find((item: ScheduledRecipes) => item.day === day);
 
     if (!scheduledRecipe) {
       scheduledRecipe = {day, recipeIds: []};
