@@ -9,6 +9,7 @@ import {ScheduledRecipeService} from './scheduled-recipe.service';
 import {ScheduledRecipesState} from './state/scheduled-recipes.reducer';
 import {Observable} from 'rxjs';
 import {SCHEDULED_RECIPES_SELECTORS} from './state/scheduled-recipes.selectors';
+import {NotificationService} from '../../core/notification/notification.service';
 @Component({
   selector: 'kuisto-week-recipe',
   templateUrl: './calendar-recipe.component.html',
@@ -21,7 +22,8 @@ export class CalendarRecipeComponent implements OnInit {
 
   constructor(private readonly store: Store,
               private readonly scheduledRecipeService: ScheduledRecipeService,
-              private readonly state: State<ScheduledRecipesState>) {}
+              private readonly state: State<ScheduledRecipesState>,
+              private readonly notificationService: NotificationService) {}
 
   ngOnInit(): void {
     this.store.dispatch(RecipesActions.loadRecipes());
@@ -32,5 +34,6 @@ export class CalendarRecipeComponent implements OnInit {
     const recipe = event.previousContainer.data[event.previousIndex];
     const scheduledRecipesState = this.state.value.scheduledRecipesState;
     this.scheduledRecipeService.addScheduledRecipes(scheduledRecipesState.filter.day, recipe);
+    this.notificationService.success('La recette a bien été ajoutée');
   }
 }

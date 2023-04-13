@@ -1,0 +1,50 @@
+:host {
+  position: fixed;
+  top: 4rem;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: var(--font-large-size);
+  font-weight: 500;
+  z-index: 99999;
+  transition: .3s ease top;
+
+
+  .message.INFO {
+    background-color: var(--blue);
+  }
+
+  .message.SUCCESS {
+    background-color:  var(--green);
+  }
+
+  .message.ERROR {
+    background-color: var(--red);
+  }
+
+  .message {
+    width: 80%;
+    height: 60px;
+    border-radius: 8px;
+
+    padding: 0 2rem;
+  }
+
+  mat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-right: 2rem;
+  }
+
+  .icon_close {
+    margin-left: auto;
+    margin-right: 0;
+    cursor: pointer;
+  }
+}

@@ -12,6 +12,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {NotificationComponent} from './core/notification/notification.component';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -27,7 +28,8 @@ registerLocaleData(localeFr);
     BrowserAnimationsModule,
     EffectsModule.forRoot(),
     StoreModule.forRoot(),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
+    NotificationComponent,
   ],
   providers: [ { provide: LOCALE_ID, useValue: "fr-FR" }, DatePipe],
   bootstrap: [AppComponent]

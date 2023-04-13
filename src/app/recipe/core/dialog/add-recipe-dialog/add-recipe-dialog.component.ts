@@ -4,6 +4,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Recipe} from '../../../_models/recipe';
 import {RecipeService} from '../../../recipe.service';
 import {State} from '@ngrx/store';
+import {NotificationService} from '../../../../core/notification/notification.service';
 const URL_REGEXP = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
 @Component({
   selector: 'kuisto-add-recipe-dialog',
@@ -16,7 +17,8 @@ export class AddRecipeDialogComponent implements OnInit {
   recipeForm: FormGroup;
   constructor(private readonly dialogRef: MatDialogRef<AddRecipeDialogComponent>,
               private readonly recipeService: RecipeService,
-              private readonly state: State<any>) {
+              private readonly state: State<any>,
+              private readonly notificationService: NotificationService) {
     const recipeState = state.getValue().recipeState;
 
     this.recipeForm = new FormGroup({
@@ -37,7 +39,7 @@ export class AddRecipeDialogComponent implements OnInit {
     const recipe = Object.assign(new Recipe(), this.recipeForm.value);
     this.recipeService.save(recipe)
       .subscribe(() => {
-        alert('created');
+        this.notificationService.success('La recette a bien été ajoutée.');
         this.close();
       });
   }
