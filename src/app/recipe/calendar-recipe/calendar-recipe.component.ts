@@ -8,7 +8,7 @@ import {Recipe} from '../_models/recipe';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarRecipeComponent implements OnInit {
-  scheduleRecipeIsOpen: boolean;
+  rightPanelIsOpen: boolean;
   recipes: Recipe[] = [];
   ngOnInit(): void {
   }

@@ -5,9 +5,9 @@
       <h1>Recette de la semaine</h1>
 
       <button mat-flat-button class="round close-btn"
-              *ngIf="scheduleRecipeIsOpen" (click)="scheduleRecipeIsOpen = false">Fermer</button>
+              *ngIf="rightPanelIsOpen" (click)="rightPanelIsOpen = false">Fermer</button>
       <button mat-flat-button class="round" color="primary"
-              *ngIf="!scheduleRecipeIsOpen" (click)="scheduleRecipeIsOpen = true">Ajouter une recette</button>
+              *ngIf="!rightPanelIsOpen" (click)="rightPanelIsOpen = true">Ajouter une recette</button>
     </div>
 
     <kuisto-calendar-header></kuisto-calendar-header>
@@ -20,6 +20,6 @@
     </div>
   </div>
 
-  <kuisto-schedule-recipe [class.opened]="scheduleRecipeIsOpen"></kuisto-schedule-recipe>
+  <kuisto-add-scheduled-recipe [class.opened]="rightPanelIsOpen"></kuisto-add-scheduled-recipe>
 
 </div>
