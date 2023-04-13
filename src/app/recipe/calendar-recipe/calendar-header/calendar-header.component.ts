@@ -1,18 +1,18 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {addDays, addWeeks, isToday, startOfWeek, subWeeks} from 'date-fns';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {addDays, addWeeks, startOfWeek, subWeeks} from 'date-fns';
+
 @Component({
-  selector: 'kuisto-week-recipe',
-  templateUrl: './week-recipe.component.html',
-  styleUrls: ['./week-recipe.component.scss'],
+  selector: 'kuisto-calendar-header',
+  templateUrl: './calendar-header.component.html',
+  styleUrls: ['./calendar-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WeekRecipeComponent implements OnInit {
+export class CalendarHeaderComponent {
   weekDays: Date[];
 
   ngOnInit(): void {
-   this.initWeekDays(new Date());
+    this.initWeekDays(new Date());
   }
-
 
   prevWeek() {
     this.initWeekDays(subWeeks(this.weekDays[0], 1))

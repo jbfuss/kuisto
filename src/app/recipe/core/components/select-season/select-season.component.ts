@@ -13,12 +13,7 @@ import {Season} from '../../../_models/season';
       provide: ControlContainer,
       useExisting: FormGroupDirective
     }
-  ],
-  imports: [
-    MatSelectModule,
-    ReactiveFormsModule
-  ],
-  standalone: true
+  ]
 })
 export class SelectSeasonComponent {
   @Input() controlName: string;

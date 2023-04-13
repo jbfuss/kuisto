@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--grey-middle);
+  --recipe-filters-direction: row;
+  --recipe-filters-width: 20%;
+
+  form {
+    display: flex;
+    flex-direction: var(--recipe-filters-direction);
+    width: 100%;
+    gap: 20px;
+    padding: 20px;
+
+    & > * {
+      width: var(--recipe-filters-width);
+
+    }
+
+  }
+
+
+}

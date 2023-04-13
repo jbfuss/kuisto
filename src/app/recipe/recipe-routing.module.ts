@@ -1,17 +1,15 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {ActivatedRouteSnapshot, ResolveFn, RouterModule, RouterStateSnapshot, Routes} from '@angular/router';
-import {WeekRecipeModule} from './week-recipe/week-recipe.module';
+import {ModuleWithProviders} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {RecipeModule} from './recipe.module';
-import {Recipe} from './_models/recipe';
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      {path: '', redirectTo: 'week', pathMatch: 'full'},
+      {path: '', redirectTo: 'calendar', pathMatch: 'full'},
       {
-        path: 'week',
-        loadChildren: () => import('./week-recipe/week-recipe.module').then(m => m.WeekRecipeModule)
+        path: 'calendar',
+        loadChildren: () => import('./calendar-recipe/calendar-recipe.module').then(m => m.CalendarRecipeModule)
       },
       {
         path: 'list',

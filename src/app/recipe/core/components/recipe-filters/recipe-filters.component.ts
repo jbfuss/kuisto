@@ -1,15 +1,15 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {State, Store} from '@ngrx/store';
-import {RecipesActions, RecipeState} from '../../core/state';
+import {RecipesActions, RecipeState} from '../../state';
 
 @Component({
-  selector: 'kuisto-recipe-list-filters',
-  templateUrl: './recipe-list-filters.component.html',
-  styleUrls: ['./recipe-list-filters.component.scss'],
+  selector: 'kuisto-recipe-filters',
+  templateUrl: './recipe-filters.component.html',
+  styleUrls: ['./recipe-filters.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RecipeListFiltersComponent implements OnInit{
+export class RecipeFiltersComponent implements OnInit{
   filtersForm: FormGroup;
 
   constructor (private readonly state: State<any>,
@@ -18,7 +18,7 @@ export class RecipeListFiltersComponent implements OnInit{
 
    this.filtersForm = new FormGroup({
       season: new FormControl(recipeState.filter.season),
-      name: new FormControl('')
+      name: new FormControl(recipeState.filter.name)
     });
   }
 

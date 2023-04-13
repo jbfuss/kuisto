@@ -3,19 +3,16 @@ import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import { RecipeListComponent } from './recipe-list.component';
 import {RECIPE_LIST_ROUTING} from './recipe-list.routing';
-import {SelectSeasonComponent} from '../core/components/select-season/select-season.component';
 import {MatIconModule} from '@angular/material/icon';
 import {ModalModule} from '../../core/modal/modal.module';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { RecipeListFiltersComponent } from './recipe-list-filters/recipe-list-filters.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
-import {RecipeCardComponent} from '../core/components/recipe-card/recipe-card.component';
+import {RecipeCoreModule} from '../core/recipe-core.module';
 
 @NgModule({
   declarations: [
     RecipeListComponent,
-    RecipeListFiltersComponent
   ],
   imports: [
     CommonModule,
@@ -23,11 +20,10 @@ import {RecipeCardComponent} from '../core/components/recipe-card/recipe-card.co
     MatButtonModule,
     MatIconModule,
     RECIPE_LIST_ROUTING,
-    SelectSeasonComponent,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatInputModule,
-    RecipeCardComponent
+    RecipeCoreModule
   ]
 })
 export class RecipeListModule { }

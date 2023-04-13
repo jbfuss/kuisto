@@ -1,0 +1,8 @@
+<kuisto-recipe-filters></kuisto-recipe-filters>
+<mat-spinner *ngIf="loading$ | async"></mat-spinner>
+
+<div class="d-flex flex-column recipes align-items-center"
+     cdkDropList
+     [cdkDropListData]="recipes$ | async">
+  <kuisto-recipe-card *ngFor="let recipe of recipes$ | async" [recipe]="recipe" cdkDrag></kuisto-recipe-card>
+</div>

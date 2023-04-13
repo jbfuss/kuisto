@@ -1,8 +1,9 @@
 <form [formGroup]="filtersForm">
 
+  <kuisto-select-season controlName="season"></kuisto-select-season>
+
   <mat-form-field class="without-error-container">
     <mat-label>Nom de la recette</mat-label>
     <input matInput formControlName="name">
   </mat-form-field>
-  <kuisto-select-season controlName="season"></kuisto-select-season>
 </form>
