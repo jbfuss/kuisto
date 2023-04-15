@@ -1,4 +1,4 @@
-@import "assets/scss/grid";
+@import "assets/scss/bootstrap-grid.css";
 @import "assets/scss/material";
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
 
@@ -12,7 +12,7 @@ html, body {
   --red: #FF4D4F;
 
   --grey: #e9ecef;
-  --grey-light: #f8f9fa;
+  --grey-light: #F8F8F8;;
   --grey-middle: #ced4da;
   --grey-dark: #6c757d;
 
@@ -21,7 +21,6 @@ html, body {
   --font-medium-size: 14px;
   --font-small-size: 12px;
 
-  background: #F8F8F8;
   overflow: hidden;
 }
 

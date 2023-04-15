@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  height: 100%;
+  --border: 1px solid var(--grey-middle);
+  .header {
+    padding: 20px;
+    background: var(--grey-light);
+    border-bottom: var(--border);
+
+    button {
+      background: var(--grey-light);
+    }
+  }
+
+  .row > * {
+    padding: 0;
+  }
+  .content > *:not(:last-child) {
+     border-right: var(--border);
+  }
+
+
+}

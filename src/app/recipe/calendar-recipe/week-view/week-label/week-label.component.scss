@@ -5,19 +5,18 @@
   justify-content: center;
   align-items: center;
 
-  &.today {
+  &.currentWeek {
     color: var(--blue);
   }
 
-  .day {
+  .week {
     font-weight: 500;
-    font-size: 40px;
+    font-size: 25px;
   }
 
-  .month, .week-day {
-    text-transform: capitalize;
+  .days {
     font-weight: 500;
-    font-size: var(--font-large-size);
+    font-size: var(--font-medium-size);
     color: var(--grey-dark);
   }
 }

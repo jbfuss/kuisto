@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 100Vh;
   background: var(--light-blue);
+  border-left: 1px solid var(--grey-dark);
 
   kuisto-recipe-filters {
     --recipe-filters-direction: column;

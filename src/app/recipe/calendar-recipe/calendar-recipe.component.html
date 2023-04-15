@@ -2,7 +2,7 @@
 
   <div class="d-flex flex-column w-100">
     <div class="d-flex align-items-center justify-content-between header">
-      <h1>Recette de la semaine</h1>
+      <h1>Recettes par semaine</h1>
 
       <button mat-flat-button class="round close-btn"
               *ngIf="rightPanelIsOpen" (click)="rightPanelIsOpen = false">Fermer</button>
@@ -10,14 +10,7 @@
               *ngIf="!rightPanelIsOpen" (click)="rightPanelIsOpen = true">Ajouter une recette</button>
     </div>
 
-    <kuisto-calendar-header></kuisto-calendar-header>
-
-    <div class="d-flex recipes"
-         cdkDropList
-         [cdkDropListData]="recipes$ | async"
-         (cdkDropListDropped)="drop($event)">
-      <kuisto-recipe-card *ngFor="let recipe of recipes$ | async" [recipe]="recipe"></kuisto-recipe-card>
-    </div>
+    <kuisto-calendar-week-view></kuisto-calendar-week-view>
   </div>
 
   <kuisto-add-scheduled-recipe [class.opened]="rightPanelIsOpen"></kuisto-add-scheduled-recipe>

@@ -1,0 +1,25 @@
+
+<div class="container h-100">
+  <div class="row header">
+    <div class="col">
+      <button mat-icon-button (click)="prevWeek()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+    </div>
+
+    <div class="col-5 recipes-col" *ngFor="let week of weeks">
+      <kuisto-week-label [week]="week"></kuisto-week-label>
+    </div>
+
+    <div class="col d-flex justify-content-end">
+      <button mat-icon-button (click)="nextWeek()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="row content h-100">
+    <div class="col-6 recipes-col" *ngFor="let week of weeks">
+      <kuisto-week-recipes [week]="week"></kuisto-week-recipes>
+    </div>
+  </div>
+</div>
