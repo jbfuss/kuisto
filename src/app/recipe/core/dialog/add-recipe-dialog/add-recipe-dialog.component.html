@@ -15,13 +15,17 @@
 
     <kuisto-select-season controlName="season"></kuisto-select-season>
 
-    <mat-form-field>
-      <mat-label>Image de la recette</mat-label>
-      <input matInput formControlName="image">
-    </mat-form-field>
+    <div class="d-flex image-input">
+      <mat-form-field>
+        <mat-label>Image de la recette</mat-label>
+        <input matInput formControlName="image">
+      </mat-form-field>
+      <img alt="Image de la recette" [src]="imageControl.value" *ngIf="imageControl.value">
+    </div>
 
-    <img alt="Image de la recette" [src]="imageControl.value" *ngIf="imageControl.value">
 
+    <kuisto-multi-input title="Ingrédients" [(items)]="ingredients"></kuisto-multi-input>
+    <kuisto-multi-input title="Étapes de préparation" [(items)]="steps"></kuisto-multi-input>
   </form>
 
 

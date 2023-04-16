@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import * as cheerio from 'cheerio';
 import {map, Observable} from 'rxjs';
 import {Recipe} from '../../../_models/recipe';
+import {CheerioAPI} from 'cheerio';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,10 +26,16 @@ export class AmandineCookingParserService {
 
         const name = $('h2.Post-title').text().trim();
         const image = $('.ob-section img').attr('src')?.trim();
-        console.log(image)
+
+        const ingredients =  this.htmlListToArray($, '.ob-section ul li');
+        const steps = this.htmlListToArray($, '.ob-section ol li');
         return {
-          link, name, image
+          link, name, image, ingredients, steps
         }
       }));
+  }
+
+  private htmlListToArray($: CheerioAPI, selector: string) {
+    return $(selector).toArray().map((elem) => $(elem).text());
   }
 }

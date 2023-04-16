@@ -13,6 +13,7 @@ import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {NotificationComponent} from './core/notification/notification.component';
+import { MultiInputComponent } from './core/components/multi-input/multi-input.component';
 registerLocaleData(localeFr);
 
 @NgModule({

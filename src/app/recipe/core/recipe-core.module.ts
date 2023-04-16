@@ -15,19 +15,23 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
+import {MultiInputComponent} from '../../core/components/multi-input/multi-input.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatIconModule,
-    MatDialogModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSelectModule,
-    StoreModule.forFeature(recipesFeature),
-    EffectsModule.forFeature([RecipesEffects]),
-  ],
+    imports: [
+        CommonModule,
+        MatIconModule,
+        MatDialogModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatSelectModule,
+        StoreModule.forFeature(recipesFeature),
+        EffectsModule.forFeature([RecipesEffects]),
+        MatChipsModule,
+        MultiInputComponent,
+    ],
   declarations: [
     AddRecipeDialogComponent,
     SelectSeasonComponent,

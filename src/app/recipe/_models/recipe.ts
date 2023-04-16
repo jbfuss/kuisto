@@ -6,6 +6,8 @@ export class Recipe {
   link: string;
 
   image?: string;
+  ingredients?: string[];
+  steps?: string[];
   season?: Season;
 
 
