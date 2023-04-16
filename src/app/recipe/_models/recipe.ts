@@ -1,10 +1,12 @@
 import { v4 as uuid } from 'uuid';
 import {Season} from './season';
 export class Recipe {
-  id: string;
+  id?: string;
   name: string;
   link: string;
-  season: Season;
+
+  image?: string;
+  season?: Season;
 
 
   constructor() {

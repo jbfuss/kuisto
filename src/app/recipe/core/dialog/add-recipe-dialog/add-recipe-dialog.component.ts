@@ -1,11 +1,11 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Recipe} from '../../../_models/recipe';
 import {RecipeService} from '../../../recipe.service';
 import {State} from '@ngrx/store';
 import {NotificationService} from '../../../../core/notification/notification.service';
-const URL_REGEXP = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+import {AmandineCookingParserService} from '../../services/recipe-parsing/amandine-cooking-parser.service';
 @Component({
   selector: 'kuisto-add-recipe-dialog',
   templateUrl: './add-recipe-dialog.component.html',
@@ -18,18 +18,21 @@ export class AddRecipeDialogComponent implements OnInit {
   constructor(private readonly dialogRef: MatDialogRef<AddRecipeDialogComponent>,
               private readonly recipeService: RecipeService,
               private readonly state: State<any>,
+              private readonly changeDetectorRef: ChangeDetectorRef,
+              private readonly amandineCookingParserService: AmandineCookingParserService,
               private readonly notificationService: NotificationService) {
     const recipeState = state.getValue().recipeState;
 
     this.recipeForm = new FormGroup({
-      link: new FormControl('', [Validators.required, Validators.pattern(URL_REGEXP)]),
+      link: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required]),
+      image: new FormControl(''),
       season: new FormControl(recipeState.filter.season, [Validators.required])
     });
   }
 
   ngOnInit(): void {
-    this.getLinkControl()
+    this.linkControl
       ?.valueChanges.subscribe((link) => {
       this.linkChange(link)
     })
@@ -49,13 +52,24 @@ export class AddRecipeDialogComponent implements OnInit {
   }
 
   linkChange(link: string) {
-    if (link.indexOf('amandinecooking.com')) {
-      console.log('amandine')
+    if (this.amandineCookingParserService.isAmandineCookingRecipe(link)) {
+      this.amandineCookingParserService.parse(link)
+        .subscribe((recipe) => {
+          this.nameControl.setValue(recipe.name)
+          this.imageControl.setValue(recipe.image);
+          this.changeDetectorRef.detectChanges();
+        });
     }
   }
 
-  private getLinkControl() {
+  private get linkControl() {
     return this.recipeForm.get('link');
+  }
+  private get nameControl() {
+    return this.recipeForm.get('name');
+  }
+  public get imageControl() {
+    return this.recipeForm.get('image');
   }
 
 }

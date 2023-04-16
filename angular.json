@@ -37,7 +37,8 @@
             "scripts": [],
             "allowedCommonJsDependencies": [
               "@types/uuid",
-              "lodash.clonedeep"
+              "lodash.clonedeep",
+              "boolbase"
             ]
           },
           "configurations": {

@@ -14,6 +14,14 @@
     </mat-form-field>
 
     <kuisto-select-season controlName="season"></kuisto-select-season>
+
+    <mat-form-field>
+      <mat-label>Image de la recette</mat-label>
+      <input matInput formControlName="image">
+    </mat-form-field>
+
+    <img alt="Image de la recette" [src]="imageControl.value" *ngIf="imageControl.value">
+
   </form>
 
 

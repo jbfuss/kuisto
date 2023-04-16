@@ -25,6 +25,7 @@
     "@ngrx/entity": "^15.4.0",
     "@ngrx/store": "^15.4.0",
     "@ngrx/store-devtools": "^15.4.0",
+    "cheerio": "^1.0.0-rc.12",
     "date-fns": "^2.29.3",
     "firebase": "^9.19.1",
     "lodash.clonedeep": "^4.5.0",
