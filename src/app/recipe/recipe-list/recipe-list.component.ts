@@ -13,15 +13,11 @@ import {RECIPES_SELECTORS} from '../core/state';
   styleUrls: ['./recipe-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent {
   recipes$: Observable<Recipe[]> = this.store.select(RECIPES_SELECTORS.selectFilteredRecipes);
   loading$: Observable<boolean> = this.store.select(RECIPES_SELECTORS.selectIsLoading);
   constructor(private readonly modalService: ModalService,
               private readonly store: Store) {
-  }
-
-  ngOnInit(): void {
-    this.store.dispatch(RecipesActions.loadRecipes());
   }
 
   addRecipe() {

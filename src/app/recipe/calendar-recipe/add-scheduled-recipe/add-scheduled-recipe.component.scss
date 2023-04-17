@@ -8,7 +8,11 @@
   kuisto-recipe-filters {
     --recipe-filters-direction: column;
     --recipe-filters-width: 100%;
+    padding-bottom: 17px;
+
+
   }
+
   .recipes {
     overflow: auto;
     padding: 20px;

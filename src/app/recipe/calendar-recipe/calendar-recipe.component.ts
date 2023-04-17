@@ -8,12 +8,6 @@ import {ScheduledRecipesActions} from './state/scheduled-recipes.actions';
   styleUrls: ['./calendar-recipe.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CalendarRecipeComponent implements OnInit {
+export class CalendarRecipeComponent {
   rightPanelIsOpen: boolean;
-  constructor(private readonly store: Store) {}
-
-  ngOnInit(): void {
-    this.store.dispatch(RecipesActions.loadRecipes());
-    this.store.dispatch(ScheduledRecipesActions.loadScheduledRecipes());
-  }
 }

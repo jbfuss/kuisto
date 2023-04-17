@@ -1,6 +1,6 @@
 :host {
   display: flex;
-  height: 100%;
+  height: calc(100% - 100px);
   --border: 1px solid var(--grey-middle);
   .header {
     padding: 20px;
@@ -8,7 +8,12 @@
     border-bottom: var(--border);
 
     button {
+      position: absolute;
       background: var(--grey-light);
+
+      &.right-btn {
+        right: 20px;
+      }
     }
   }
 

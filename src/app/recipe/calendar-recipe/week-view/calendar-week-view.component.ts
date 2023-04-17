@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {addWeeks, endOfWeek, getWeek, startOfWeek, subWeeks} from 'date-fns';
-import {Store} from '@ngrx/store';
-import {DatePipe} from '@angular/common';
 import {Week} from './_models/week';
 
 @Component({
