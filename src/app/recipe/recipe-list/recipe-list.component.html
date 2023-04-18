@@ -11,5 +11,5 @@
 <mat-spinner *ngIf="loading$ | async"></mat-spinner>
 
 <div class="d-flex recipes">
-  <kuisto-recipe-card *ngFor="let recipe of recipes$ | async" [recipe]="recipe"></kuisto-recipe-card>
+  <kuisto-recipe-card *ngFor="let recipe of recipes$ | async" [recipe]="recipe" (delete)="deleteRecipe(recipe)"></kuisto-recipe-card>
 </div>

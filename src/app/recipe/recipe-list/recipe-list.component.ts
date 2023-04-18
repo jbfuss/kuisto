@@ -6,6 +6,7 @@ import {Recipe} from '../_models/recipe';
 import {RecipesActions} from '../core/state';
 import {RECIPES_SELECTORS} from '../core/state';
 import {RecipeEditDialogComponent} from '../core/dialog/recipe-edit-dialog/recipe-edit-dialog.component';
+import {RecipeService} from '../recipe.service';
 
 @Component({
   selector: 'kuisto-season-recipe-list',
@@ -17,11 +18,16 @@ export class RecipeListComponent {
   recipes$: Observable<Recipe[]> = this.store.select(RECIPES_SELECTORS.selectFilteredRecipes);
   loading$: Observable<boolean> = this.store.select(RECIPES_SELECTORS.selectIsLoading);
   constructor(private readonly modalService: ModalService,
+              private readonly recipeService: RecipeService,
               private readonly store: Store) {
   }
 
   addRecipe() {
     this.store.dispatch(RecipesActions.addRecipe());
     this.modalService.open(RecipeEditDialogComponent);
+  }
+
+  deleteRecipe(recipe: Recipe) {
+    this.recipeService.delete(recipe);
   }
 }

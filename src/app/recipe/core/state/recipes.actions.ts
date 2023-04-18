@@ -12,5 +12,6 @@ export const RecipesActions = createActionGroup({
     'View Recipe': props<{ recipe: Recipe}>(),
     'Add Recipe': emptyProps(),
     'Edit Recipe': props<{ recipe: Recipe}>(),
+    'Delete Recipe': props<{ recipe: Recipe}>(),
   }
 });

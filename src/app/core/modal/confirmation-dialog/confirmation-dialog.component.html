@@ -1,0 +1,17 @@
+<mat-icon class="close" mat-dialog-close (click)="close()">close</mat-icon>
+<h1>{{title}}</h1>
+<div mat-dialog-content>
+
+  <h2>{{message}}</h2>
+  <div class="actions d-flex justify-content-center">
+    <button mat-flat-button (click)="close()">
+      Non
+    </button>
+
+    <button mat-flat-button color="primary" (click)="confirm()">
+      Oui
+    </button>
+
+  </div>
+
+</div>

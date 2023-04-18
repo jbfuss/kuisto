@@ -33,6 +33,7 @@ const recipesReducer = createReducer(
   on(RecipesActions.loadRecipesSuccess, (state, { recipes }) => refreshListState(state, recipes)),
   on(RecipesActions.filterRecipes, (state, { season, name }) => ({...state, filter: {season, name}})),
   on(RecipesActions.saveRecipe,(state, { recipe }) => refreshListState(state, RecipeService.updateRecipeInList(state.recipes, recipe))),
+  on(RecipesActions.deleteRecipe,(state, { recipe }) => refreshListState(state, RecipeService.deleteRecipeInList(state.recipes, recipe))),
   on(RecipesActions.editRecipe,(state, { recipe }) =>  ({...state, currentRecipe: recipe})),
   on(RecipesActions.viewRecipe,(state, { recipe }) =>  ({...state, currentRecipe: recipe})),
   on(RecipesActions.addRecipe,(state, {}) => ({...state, currentRecipe: new Recipe()}))

@@ -5,11 +5,14 @@ import {Store} from '@ngrx/store';
 import {Observable, of} from 'rxjs';
 import {ScheduledRecipesActions} from './state/scheduled-recipes.actions';
 import cloneDeep from 'lodash.clonedeep';
-@Injectable()
+import {NotificationService} from '../../core/notification/notification.service';
+@Injectable({
+  providedIn: 'root'
+})
 export class ScheduledRecipeService {
 
   private scheduledRecipesKey = 'SCHEDULE_RECIPES';
-  constructor(private readonly store: Store) {}
+  constructor(private readonly store: Store, private readonly notificationService: NotificationService) {}
 
   list(): ScheduledRecipes[] {
     const recipesJson = localStorage.getItem(this.scheduledRecipesKey);
@@ -23,11 +26,25 @@ export class ScheduledRecipeService {
     this.store.dispatch(ScheduledRecipesActions.addScheduledRecipe({day, recipe}));
     return of(recipe);
   }
-  deleteScheduledRecipes(day: string, recipe: Recipe ): Observable<Recipe> {
-    const scheduledRecipes = ScheduledRecipeService.deleteRecipe(this.list(), day, recipe);
+  recipeHasBeenRemoved(recipe: Recipe) {
+    const scheduledRecipes = this.list()
+      .map((scheduleRecipes) => {
+          scheduleRecipes.recipeIds = scheduleRecipes.recipeIds
+            .filter((recipeId) => recipeId !== recipe.id)
+
+          return scheduleRecipes;
+        }
+      );
+    localStorage.setItem(this.scheduledRecipesKey, JSON.stringify(scheduledRecipes));
+  }
+
+  deleteScheduledRecipes(day: string, recipe: Recipe): Observable<Recipe> {
+    const scheduledRecipes = ScheduledRecipeService.deleteScheduledRecipe(this.list(), day, recipe);
     localStorage.setItem(this.scheduledRecipesKey, JSON.stringify(scheduledRecipes));
 
     this.store.dispatch(ScheduledRecipesActions.deleteScheduledRecipe({day, recipe}));
+
+    this.notificationService.success('La recette a bien été supprimée pour la semaine');
     return of(recipe);
   }
 
@@ -45,7 +62,7 @@ export class ScheduledRecipeService {
     return scheduledRecipeList;
   }
 
-  static deleteRecipe(scheduledRecipeList: ScheduledRecipes[], day: string, recipe: Recipe) {
+  static deleteScheduledRecipe(scheduledRecipeList: ScheduledRecipes[], day: string, recipe: Recipe) {
     const updatedRecipeList = cloneDeep(scheduledRecipeList);
     const scheduledRecipes = updatedRecipeList.find((item) => item.day === day);
 
@@ -54,4 +71,6 @@ export class ScheduledRecipeService {
 
     return updatedRecipeList;
   }
+
+
 }
