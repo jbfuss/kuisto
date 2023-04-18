@@ -17,6 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
 import {MultiInputComponent} from '../../core/components/multi-input/multi-input.component';
+import {SeasonLabelComponent} from './components/season-label/season-label.component';
 
 @NgModule({
     imports: [
@@ -31,6 +32,7 @@ import {MultiInputComponent} from '../../core/components/multi-input/multi-input
         EffectsModule.forFeature([RecipesEffects]),
         MatChipsModule,
         MultiInputComponent,
+        SeasonLabelComponent,
     ],
   declarations: [
     AddRecipeDialogComponent,

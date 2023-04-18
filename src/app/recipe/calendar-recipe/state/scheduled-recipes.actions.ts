@@ -8,6 +8,7 @@ export const ScheduledRecipesActions = createActionGroup({
     'Load Scheduled Recipes': emptyProps(),
     'Load Scheduled Recipes Success': props<{ scheduledRecipes: ScheduledRecipes[] }>(),
     'Filter Scheduled Recipes': props<{ day: string }>(),
-    'Add Scheduled Recipe': props<{ day: string, recipe: Recipe}>()
+    'Add Scheduled Recipe': props<{ day: string, recipe: Recipe}>(),
+    'Delete Scheduled Recipe': props<{ day: string, recipe: Recipe}>()
   }
 });

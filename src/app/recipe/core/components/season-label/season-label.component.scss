@@ -1,0 +1,11 @@
+:host {
+  mat-chip {
+    display: flex;
+    background: var(--light-blue);
+    --mdc-chip-label-text-color: var(--blue);
+
+    mat-icon {
+      color: var(--blue);
+    }
+  }
+}

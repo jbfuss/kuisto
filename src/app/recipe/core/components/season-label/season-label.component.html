@@ -1,0 +1,22 @@
+<ng-container [ngSwitch]="season">
+
+  <mat-chip *ngSwitchCase="seasons.Winter">
+    <mat-icon matChipAvatar>ac_unit</mat-icon>
+    Hiver
+  </mat-chip>
+
+  <mat-chip *ngSwitchCase="seasons.Spring">
+    <mat-icon matChipAvatar>local_florist</mat-icon>
+    Printemps
+  </mat-chip>
+
+  <mat-chip *ngSwitchCase="seasons.Autumn">
+    <mat-icon matChipAvatar>eco</mat-icon>
+    Automne
+  </mat-chip>
+
+  <mat-chip *ngSwitchCase="seasons.Summer">
+    <mat-icon matChipAvatar>sunny</mat-icon>
+    Été
+  </mat-chip>
+</ng-container>

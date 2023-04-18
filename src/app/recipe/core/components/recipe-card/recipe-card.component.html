@@ -1,3 +1,11 @@
+<div class="header d-flex align-items-center justify-content-between">
+  <kuisto-season-label [season]="recipe.season"></kuisto-season-label>
+  <div class="actions d-flex justify-content-end w-100">
+    <mat-icon (click)="edit()">edit</mat-icon>
+    <mat-icon (click)="delete.emit()">delete</mat-icon>
+  </div>
+</div>
+
 <img alt="Image de la recette" [src]="recipe.image" *ngIf="recipe.image; else sampleImage">
 <ng-template #sampleImage>
   <img alt="Image de la recette" src="/assets/images/cooking.jpeg">

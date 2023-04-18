@@ -41,4 +41,7 @@ export class WeekRecipesComponent implements OnInit{
   }
 
 
+  deleteRecipe(recipe: Recipe) {
+    this.scheduledRecipeService.deleteScheduledRecipes(format(this.week.start, SCHEDULED_RECIPE_DAY_FORMAT), recipe);
+  }
 }

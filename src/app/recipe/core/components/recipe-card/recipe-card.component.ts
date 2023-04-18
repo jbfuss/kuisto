@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {Recipe} from '../../../_models/recipe';
 
 @Component({
@@ -10,4 +10,10 @@ import {Recipe} from '../../../_models/recipe';
 export class RecipeCardComponent {
 
   @Input() recipe: Recipe;
+
+  @Output() delete = new EventEmitter<void>();
+
+  edit() {
+
+  }
 }

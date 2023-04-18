@@ -6,7 +6,6 @@ import {RecipeService} from '../../../recipe.service';
 import {State} from '@ngrx/store';
 import {NotificationService} from '../../../../core/notification/notification.service';
 import {AmandineCookingParserService} from '../../services/recipe-parsing/amandine-cooking-parser.service';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
 @Component({
   selector: 'kuisto-add-recipe-dialog',
   templateUrl: './add-recipe-dialog.component.html',
@@ -27,7 +26,7 @@ export class AddRecipeDialogComponent implements OnInit {
     const recipeState = state.getValue().recipeState;
 
     this.recipeForm = new FormGroup({
-      link: new FormControl('', [Validators.required]),
+      link: new FormControl(''),
       name: new FormControl('', [Validators.required]),
       image: new FormControl(''),
       season: new FormControl(recipeState.filter.season, [Validators.required])

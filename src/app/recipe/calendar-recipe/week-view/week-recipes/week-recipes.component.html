@@ -2,5 +2,5 @@
      cdkDropList
      [cdkDropListData]="recipes$ | async"
      (cdkDropListDropped)="addRecipe($event)">
-  <kuisto-recipe-card *ngFor="let recipe of recipes$ | async" [recipe]="recipe"></kuisto-recipe-card>
+  <kuisto-recipe-card *ngFor="let recipe of recipes$ | async" [recipe]="recipe" (delete)="deleteRecipe(recipe)"></kuisto-recipe-card>
 </div>

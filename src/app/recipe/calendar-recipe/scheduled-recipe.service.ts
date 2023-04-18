@@ -5,8 +5,6 @@ import {Store} from '@ngrx/store';
 import {Observable, of} from 'rxjs';
 import {ScheduledRecipesActions} from './state/scheduled-recipes.actions';
 import cloneDeep from 'lodash.clonedeep';
-import {format, parse} from 'date-fns';
-
 @Injectable()
 export class ScheduledRecipeService {
 
@@ -25,6 +23,13 @@ export class ScheduledRecipeService {
     this.store.dispatch(ScheduledRecipesActions.addScheduledRecipe({day, recipe}));
     return of(recipe);
   }
+  deleteScheduledRecipes(day: string, recipe: Recipe ): Observable<Recipe> {
+    const scheduledRecipes = ScheduledRecipeService.deleteRecipe(this.list(), day, recipe);
+    localStorage.setItem(this.scheduledRecipesKey, JSON.stringify(scheduledRecipes));
+
+    this.store.dispatch(ScheduledRecipesActions.deleteScheduledRecipe({day, recipe}));
+    return of(recipe);
+  }
 
   static addRecipe(scheduledRecipes: ScheduledRecipes[], day: string, recipe: Recipe) {
     const scheduledRecipeList = cloneDeep(scheduledRecipes);
@@ -38,5 +43,15 @@ export class ScheduledRecipeService {
     scheduledRecipe.recipeIds.push(recipe.id);
 
     return scheduledRecipeList;
+  }
+
+  static deleteRecipe(scheduledRecipeList: ScheduledRecipes[], day: string, recipe: Recipe) {
+    const updatedRecipeList = cloneDeep(scheduledRecipeList);
+    const scheduledRecipes = updatedRecipeList.find((item) => item.day === day);
+
+    scheduledRecipes.recipeIds = scheduledRecipes?.recipeIds
+      .filter((recipeId) => recipeId !== recipe.id)
+
+    return updatedRecipeList;
   }
 }

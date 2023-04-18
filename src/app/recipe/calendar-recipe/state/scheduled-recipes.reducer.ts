@@ -22,7 +22,8 @@ const refreshListState = (state: ScheduledRecipesState, scheduledRecipes: Schedu
 const scheduledRecipesReducer = createReducer(
   initialState,
   on(ScheduledRecipesActions.loadScheduledRecipesSuccess, (state, { scheduledRecipes }) => refreshListState(state, scheduledRecipes)),
-  on(ScheduledRecipesActions.addScheduledRecipe,(state, { day, recipe }) => refreshListState(state, ScheduledRecipeService.addRecipe(state.scheduledRecipes, day, recipe)))
+  on(ScheduledRecipesActions.addScheduledRecipe,(state, { day, recipe }) => refreshListState(state, ScheduledRecipeService.addRecipe(state.scheduledRecipes, day, recipe))),
+  on(ScheduledRecipesActions.deleteScheduledRecipe,(state, { day, recipe }) => refreshListState(state, ScheduledRecipeService.deleteRecipe(state.scheduledRecipes, day, recipe)))
 );
 
 export const scheduledRecipesFeature = createFeature({
