@@ -1,34 +1,37 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Recipe} from '../../../_models/recipe';
 import {RecipeService} from '../../../recipe.service';
 import {State} from '@ngrx/store';
 import {NotificationService} from '../../../../core/notification/notification.service';
 import {AmandineCookingParserService} from '../../services/recipe-parsing/amandine-cooking-parser.service';
 @Component({
-  selector: 'kuisto-add-recipe-dialog',
-  templateUrl: './add-recipe-dialog.component.html',
-  styleUrls: ['./add-recipe-dialog.component.scss'],
-
+  selector: 'kuisto-recipe-edit-dialog',
+  templateUrl: './recipe-edit-dialog.component.html',
+  styleUrls: ['./recipe-edit-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AddRecipeDialogComponent implements OnInit {
+export class RecipeEditDialogComponent implements OnInit {
   recipeForm: FormGroup;
   ingredients: string[] = [];
   steps: string[] = [];
-  constructor(private readonly dialogRef: MatDialogRef<AddRecipeDialogComponent>,
+  constructor(private readonly dialogRef: MatDialogRef<RecipeEditDialogComponent>,
               private readonly recipeService: RecipeService,
               private readonly state: State<any>,
               private readonly changeDetectorRef: ChangeDetectorRef,
               private readonly amandineCookingParserService: AmandineCookingParserService,
               private readonly notificationService: NotificationService) {
     const recipeState = state.getValue().recipeState;
+    const recipe = recipeState.currentRecipe;
+
+    this.ingredients = recipe.ingredients;
+    this.steps = recipe.steps;
 
     this.recipeForm = new FormGroup({
-      link: new FormControl(''),
-      name: new FormControl('', [Validators.required]),
-      image: new FormControl(''),
+      id: new FormControl(recipe.id),
+      link: new FormControl(recipe.link),
+      name: new FormControl(recipe.name, [Validators.required]),
+      image: new FormControl(recipe.image),
       season: new FormControl(recipeState.filter.season, [Validators.required])
     });
   }
@@ -40,17 +43,16 @@ export class AddRecipeDialogComponent implements OnInit {
     })
   }
 
-  addRecipe() {
-    const source = {
+  saveRecipe() {
+    const recipe = {
       ...this.recipeForm.value,
       ingredients: this.ingredients,
       steps: this.steps
     };
-    const recipe = Object.assign(new Recipe(), source);
 
     this.recipeService.save(recipe)
       .subscribe(() => {
-        this.notificationService.success('La recette a bien été ajoutée.');
+        this.notificationService.success('La recette a bien été enregistrée.');
         this.close();
       });
   }

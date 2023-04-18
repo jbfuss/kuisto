@@ -8,6 +8,9 @@ export const RecipesActions = createActionGroup({
     'Load Recipes': emptyProps(),
     'Load Recipes Success': props<{ recipes: Recipe[] }>(),
     'Filter Recipes': props<{ season: Season, name: string }>(),
-    'Save Recipe': props<{ recipe: Recipe}>()
+    'Save Recipe': props<{ recipe: Recipe}>(),
+    'View Recipe': props<{ recipe: Recipe}>(),
+    'Add Recipe': emptyProps(),
+    'Edit Recipe': props<{ recipe: Recipe}>(),
   }
 });

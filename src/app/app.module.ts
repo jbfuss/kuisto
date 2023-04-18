@@ -13,7 +13,7 @@ import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {NotificationComponent} from './core/notification/notification.component';
-import { MultiInputComponent } from './core/components/multi-input/multi-input.component';
+import {ModalModule} from './core/modal/modal.module';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -25,6 +25,7 @@ registerLocaleData(localeFr);
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    ModalModule,
     MatIconModule,
     BrowserAnimationsModule,
     EffectsModule.forRoot(),

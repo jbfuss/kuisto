@@ -5,7 +5,9 @@ import {Recipe} from './_models/recipe';
 import {Store} from '@ngrx/store';
 import {RecipesActions} from './core/state';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class RecipeService {
   private recipeKey = 'RECIPES';
   constructor(private readonly store: Store) {}

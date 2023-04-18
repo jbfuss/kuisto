@@ -16,6 +16,7 @@ import {ScheduledRecipesEffects} from './state/scheduled-recipes.effects';
 import {CalendarWeekViewComponent} from './week-view/calendar-week-view.component';
 import {WeekLabelComponent} from './week-view/week-label/week-label.component';
 import { WeekRecipesComponent } from './week-view/week-recipes/week-recipes.component';
+import {ModalModule} from '../../core/modal/modal.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { WeekRecipesComponent } from './week-view/week-recipes/week-recipes.comp
   providers: [ScheduledRecipeService],
   imports: [
     CommonModule,
+    ModalModule,
     CALENDAR_RECIPE_ROUTING,
     MatButtonModule,
     MatIconModule,

@@ -1,11 +1,11 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {AddRecipeDialogComponent} from '../core/dialog/add-recipe-dialog/add-recipe-dialog.component';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {ModalService} from '../../core/modal/modal.service';
 import {Store} from '@ngrx/store';
 import {Observable, tap} from 'rxjs';
 import {Recipe} from '../_models/recipe';
 import {RecipesActions} from '../core/state';
 import {RECIPES_SELECTORS} from '../core/state';
+import {RecipeEditDialogComponent} from '../core/dialog/recipe-edit-dialog/recipe-edit-dialog.component';
 
 @Component({
   selector: 'kuisto-season-recipe-list',
@@ -21,6 +21,7 @@ export class RecipeListComponent {
   }
 
   addRecipe() {
-    this.modalService.open(AddRecipeDialogComponent);
+    this.store.dispatch(RecipesActions.addRecipe());
+    this.modalService.open(RecipeEditDialogComponent);
   }
 }

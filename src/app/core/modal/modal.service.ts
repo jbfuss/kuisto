@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {MatDialog, MatDialogConfig, MatDialogRef} from '@angular/material/dialog';
-import {ComponentType} from '@angular/cdk/overlay';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 
 export type ModalConfiguration =  any | MatDialogConfig | MatDialogConfig & { panelClass: string[] };
 
