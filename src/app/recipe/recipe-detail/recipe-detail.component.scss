@@ -1,0 +1,84 @@
+:host {
+  display: block;
+  height: 100%;
+  --header-height: 400px;
+  overflow: auto;
+  .header {
+    z-index: 1;
+    width: 100%;
+    position: relative;
+    padding: 60px 120px;
+    box-sizing: border-box;
+    height: var(--header-height);
+    background: var(--header-background-color);
+    --header-background-color: var(--light-blue);
+
+    kuisto-season-label {
+      --label-background-color: var(--middle-blue);
+    }
+
+    &.Spring {
+      --header-background-color:  var(--light-green);
+      kuisto-season-label {
+        --label-background-color: var(--middle-green);
+      }
+    }
+
+    &.Autumn {
+      --header-background-color: var(--light-red);
+      kuisto-season-label {
+        --label-background-color: var(--middle-red);
+      }
+    }
+
+    &.Summer {
+      --header-background-color: var(--light-orange);
+      kuisto-season-label {
+        --label-background-color: var(--middle-orange);
+      }
+    }
+
+
+    .actions {
+      top: 20px;
+      left: 20px;
+      position: absolute;
+      width: calc(100% - 40px);
+
+      display: flex;
+      justify-content: space-between;
+
+      .back-btn {
+        color: var(--black);
+        background: var(--grey);
+
+        min-width: inherit;
+        padding: 20px;
+      }
+
+      .more-menu {
+        color: var(--black);
+        background: var(--grey);
+      }
+
+    }
+
+    kuisto-recipe-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 100%;
+      border: 3px solid white;
+    }
+
+    .title {
+      margin-left: 20px;
+
+      h1 {
+        font-weight: 600;
+        font-size: 40px;
+      }
+
+    }
+  }
+
+}

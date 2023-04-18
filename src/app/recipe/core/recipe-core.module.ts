@@ -17,33 +17,38 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
 import {MultiInputComponent} from '../../core/components/multi-input/multi-input.component';
 import {SeasonLabelComponent} from './components/season-label/season-label.component';
+import {RouterLink} from '@angular/router';
+import {RecipeImageComponent} from './components/recipe-image/recipe-image.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        MatIconModule,
-        MatDialogModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatButtonModule,
-        MatSelectModule,
-        StoreModule.forFeature(recipesFeature),
-        EffectsModule.forFeature([RecipesEffects]),
-        MatChipsModule,
-        MultiInputComponent,
-        SeasonLabelComponent,
-    ],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    StoreModule.forFeature(recipesFeature),
+    EffectsModule.forFeature([RecipesEffects]),
+    MatChipsModule,
+    MultiInputComponent,
+    SeasonLabelComponent,
+    RouterLink,
+  ],
   declarations: [
     RecipeEditDialogComponent,
     SelectSeasonComponent,
     RecipeCardComponent,
-    RecipeFiltersComponent
+    RecipeFiltersComponent,
+    RecipeImageComponent
   ],
   exports: [
     SelectSeasonComponent,
     RecipeCardComponent,
     RecipeFiltersComponent,
-    RecipeEditDialogComponent
+    RecipeEditDialogComponent,
+    RecipeImageComponent
   ],
   providers: [
     RecipesEffects

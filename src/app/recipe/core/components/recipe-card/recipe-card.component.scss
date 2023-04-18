@@ -30,10 +30,9 @@
     }
   }
 
-  img {
+  kuisto-recipe-image {
     width: var(--card-width);
     height: 150px;
-    object-fit: cover;
     border-radius: 20px;
   }
 

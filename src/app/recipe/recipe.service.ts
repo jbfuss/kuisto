@@ -39,6 +39,11 @@ export class RecipeService {
     return of(recipe);
   }
 
+  findById(recipeId: string): Recipe {
+    return this.list()
+      .find((recipe) => recipe.id === recipeId);
+  }
+
   public static deleteRecipeInList(recipes: Recipe[], recipe: Recipe) {
     return recipes
       .filter((existing) => existing.id !== recipe.id);
@@ -48,6 +53,7 @@ export class RecipeService {
       .filter((existing) => existing.id !== updatedRecipe.id);
     return [updatedRecipe, ...otherRecipes]
   }
+
 
 
 }

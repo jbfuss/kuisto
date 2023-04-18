@@ -4,17 +4,22 @@
 
   <form [formGroup]="recipeForm">
 
-    <mat-form-field>
-      <mat-label>Nom de la recette</mat-label>
-      <input matInput formControlName="name">
-    </mat-form-field>
+    <div class="d-flex gap-1">
+      <mat-form-field>
+        <mat-label>Nom de la recette</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+
+
+      <kuisto-select-season controlName="season"></kuisto-select-season>
+    </div>
+
 
     <mat-form-field>
       <mat-label>Lien de la recette</mat-label>
       <input matInput formControlName="link">
     </mat-form-field>
 
-    <kuisto-select-season controlName="season"></kuisto-select-season>
 
     <div class="d-flex image-input">
       <mat-form-field>

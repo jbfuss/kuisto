@@ -24,15 +24,15 @@ export class RecipeEditDialogComponent implements OnInit {
     const recipeState = state.getValue().recipeState;
     const recipe = recipeState.currentRecipe;
 
-    this.ingredients = recipe.ingredients;
-    this.steps = recipe.steps;
+    this.ingredients = recipe.ingredients || [];
+    this.steps = recipe.steps || [];
 
     this.recipeForm = new FormGroup({
       id: new FormControl(recipe.id),
       link: new FormControl(recipe.link),
       name: new FormControl(recipe.name, [Validators.required]),
       image: new FormControl(recipe.image),
-      season: new FormControl(recipeState.filter.season, [Validators.required])
+      season: new FormControl(recipeState.filter.season)
     });
   }
 

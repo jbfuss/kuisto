@@ -13,12 +13,15 @@ const routes: Routes = [
       {path: '', redirectTo: 'calendar', pathMatch: 'full'},
       {
         path: 'calendar',
-        canActivate: [() => inject(Store).dispatch(ScheduledRecipesActions.loadScheduledRecipes())],
         loadChildren: () => import('./calendar-recipe/calendar-recipe.module').then(m => m.CalendarRecipeModule)
       },
       {
         path: 'list',
         loadChildren: () => import('./recipe-list/recipe-list.module').then(m => m.RecipeListModule)
+      },
+      {
+        path: ':id',
+        loadChildren: () => import('./recipe-detail/recipe-detail.module').then(m => m.RecipeDetailModule)
       }
     ]
   }

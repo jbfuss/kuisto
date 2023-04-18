@@ -1,0 +1,48 @@
+<ng-container *ngIf="($currentRecipe | async) as recipe">
+
+  <div class="header {{recipe.season}}">
+    <div class="actions">
+      <button class="back-btn round" mat-flat-button (click)="back()">
+        <mat-icon>arrow_back</mat-icon>
+        back
+      </button>
+
+      <button class="more-menu" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="edit(recipe)">
+          <mat-icon>edit</mat-icon>
+          <span>Éditer la recette</span>
+        </button>
+        <a mat-menu-item [href]="recipe.link" target="_blank">
+          <mat-icon>visibility</mat-icon>
+          <span>Voir la recette originale</span>
+        </a>
+        <button mat-menu-item (click)="delete(recipe)">
+          <mat-icon>delete</mat-icon>
+          <span>Supprimer la recette</span>
+        </button>
+      </mat-menu>
+
+    </div>
+
+
+    <div class="d-flex align-items-center">
+      <kuisto-recipe-image [recipe]="recipe"></kuisto-recipe-image>
+
+      <div class="title">
+        <kuisto-season-label [season]="recipe.season"></kuisto-season-label>
+        <h1>{{recipe.name}}</h1>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <kuisto-recipe-detail-content [recipe]="recipe"></kuisto-recipe-detail-content>
+
+</ng-container>
+
+

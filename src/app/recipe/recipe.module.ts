@@ -4,7 +4,7 @@ import {RECIPE_ROUTING} from './recipe-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    RECIPE_ROUTING,
+    RECIPE_ROUTING
   ]
 })
 export class RecipeModule { }

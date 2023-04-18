@@ -1,23 +1,25 @@
 :host {
+  display: flex;
+  width: max-content;
   --label-color: var(--blue);
-  --background-color: var(--light-blue);
+  --label-background-color: var(--light-blue);
 
   &.Spring {
-    --label-color: var(--dark);
-    --background-color: var(--light-green);
+    --label-color: var(--green);
+    --label-background-color: var(--light-green);
   }
   &.Autumn {
-    --label-color: var(--dark);
-    --background-color: var(--light-red);
+    --label-color: var(--red);
+    --label-background-color: var(--light-red);
   }
   &.Summer {
-    --label-color: var(--dark);
-    --background-color: var(--light-orange);
+    --label-color: var(--orange);
+    --label-background-color: var(--light-orange);
   }
 
   mat-chip {
     display: flex;
-    background: var(--background-color);
+    background: var(--label-background-color);
     --mdc-chip-label-text-color: var(--label-color);
 
     mat-icon {

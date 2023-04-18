@@ -4994,4 +4994,9 @@
   }
 }
 
+
 /*# sourceMappingURL=bootstrap-grid.css.map */
+
+.gap-1 {
+  gap: 1rem;
+}

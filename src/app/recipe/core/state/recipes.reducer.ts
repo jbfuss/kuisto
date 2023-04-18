@@ -22,18 +22,19 @@ export const initialState: RecipeState = {
   }
 };
 
-const refreshListState = (state: RecipeState, recipes: Recipe[]) => ({
+const refreshListState = (state: RecipeState, recipes: Recipe[], currentRecipe: Recipe) => ({
   ...state,
   isLoading: false,
-  recipes
+  recipes,
+  currentRecipe
 })
 
 const recipesReducer = createReducer(
   initialState,
-  on(RecipesActions.loadRecipesSuccess, (state, { recipes }) => refreshListState(state, recipes)),
+  on(RecipesActions.loadRecipesSuccess, (state, { recipes }) => refreshListState(state, recipes, null)),
   on(RecipesActions.filterRecipes, (state, { season, name }) => ({...state, filter: {season, name}})),
-  on(RecipesActions.saveRecipe,(state, { recipe }) => refreshListState(state, RecipeService.updateRecipeInList(state.recipes, recipe))),
-  on(RecipesActions.deleteRecipe,(state, { recipe }) => refreshListState(state, RecipeService.deleteRecipeInList(state.recipes, recipe))),
+  on(RecipesActions.saveRecipe,(state, { recipe }) => refreshListState(state, RecipeService.updateRecipeInList(state.recipes, recipe), recipe)),
+  on(RecipesActions.deleteRecipe,(state, { recipe }) => refreshListState(state, RecipeService.deleteRecipeInList(state.recipes, recipe), null)),
   on(RecipesActions.editRecipe,(state, { recipe }) =>  ({...state, currentRecipe: recipe})),
   on(RecipesActions.viewRecipe,(state, { recipe }) =>  ({...state, currentRecipe: recipe})),
   on(RecipesActions.addRecipe,(state, {}) => ({...state, currentRecipe: new Recipe()}))

@@ -1,0 +1,20 @@
+<div class="ingredients">
+  <h2>Ingrédients</h2>
+  <span class="no-content" *ngIf="!recipe.ingredients?.length">Aucun ingrédients ajoutés</span>
+
+  <div class="d-flex flex-wrap gap-1">
+    <div class="ingredient" *ngFor="let ingredient of recipe.ingredients">
+      {{ingredient}}
+    </div>
+  </div>
+</div>
+<div class="steps">
+  <h2>Préparation</h2>
+  <span class="no-content" *ngIf="!recipe.steps?.length">Aucunes étapes de préparation ajoutées</span>
+  <div class="d-flex flex-wrap gap-1">
+    <div class="step" *ngFor="let step of recipe.steps; let i = index">
+      <div class="num">{{i + 1}}</div>
+      {{step}}
+    </div>
+  </div>
+</div>
