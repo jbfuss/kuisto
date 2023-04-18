@@ -1,8 +1,10 @@
 :host {
+  --card-width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 200px;
+  min-width: var(--card-width);
+  width: var(--card-width);
   background: white;
   border: 1px solid var(--grey-middle);
 
@@ -29,9 +31,9 @@
   }
 
   img {
-    width: 200px;
+    width: var(--card-width);
     height: 150px;
-    object-fit: fill;
+    object-fit: cover;
     border-radius: 20px;
   }
 

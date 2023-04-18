@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostBinding, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
@@ -14,6 +14,6 @@ import {Season} from '../../../_models/season';
 })
 export class SeasonLabelComponent {
 
-  @Input() season: Season;
+  @HostBinding('class') @Input() season: Season;
   seasons = Season;
 }

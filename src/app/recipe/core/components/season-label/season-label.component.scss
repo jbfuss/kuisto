@@ -1,11 +1,27 @@
 :host {
+  --label-color: var(--blue);
+  --background-color: var(--light-blue);
+
+  &.Spring {
+    --label-color: var(--dark);
+    --background-color: var(--light-green);
+  }
+  &.Autumn {
+    --label-color: var(--dark);
+    --background-color: var(--light-red);
+  }
+  &.Summer {
+    --label-color: var(--dark);
+    --background-color: var(--light-orange);
+  }
+
   mat-chip {
     display: flex;
-    background: var(--light-blue);
-    --mdc-chip-label-text-color: var(--blue);
+    background: var(--background-color);
+    --mdc-chip-label-text-color: var(--label-color);
 
     mat-icon {
-      color: var(--blue);
+      color: var(--label-color);
     }
   }
 }
