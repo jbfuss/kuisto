@@ -10,10 +10,12 @@ import {ModalModule} from '../../core/modal/modal.module';
 import {SeasonLabelComponent} from '../core/components/season-label/season-label.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { RecipeDetailContentComponent } from './recipe-detail-content/recipe-detail-content.component';
+import { IngredientComponent } from './recipe-detail-content/ingredient/ingredient.component';
 @NgModule({
   declarations: [
     RecipeDetailComponent,
-    RecipeDetailContentComponent
+    RecipeDetailContentComponent,
+    IngredientComponent
   ],
   imports: [
     RecipeCoreModule,

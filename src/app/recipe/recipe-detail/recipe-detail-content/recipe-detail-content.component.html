@@ -3,9 +3,7 @@
   <span class="no-content" *ngIf="!recipe.ingredients?.length">Aucun ingrédients ajoutés</span>
 
   <div class="d-flex flex-wrap gap-1">
-    <div class="ingredient" *ngFor="let ingredient of recipe.ingredients">
-      {{ingredient}}
-    </div>
+    <kuisto-ingredient  *ngFor="let ingredient of recipe.ingredients" [ingredient]="ingredient"></kuisto-ingredient>
   </div>
 </div>
 <div class="steps">
@@ -14,7 +12,7 @@
   <div class="d-flex flex-wrap gap-1">
     <div class="step" *ngFor="let step of recipe.steps; let i = index">
       <div class="num">{{i + 1}}</div>
-      {{step}}
+      <span class="label">{{step}}</span>
     </div>
   </div>
 </div>

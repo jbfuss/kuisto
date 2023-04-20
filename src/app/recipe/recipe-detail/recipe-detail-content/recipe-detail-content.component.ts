@@ -1,5 +1,8 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {Recipe} from '../../_models/recipe';
+import {Observable} from 'rxjs';
+
+
 
 @Component({
   selector: 'kuisto-recipe-detail-content',
@@ -10,5 +13,6 @@ import {Recipe} from '../../_models/recipe';
 export class RecipeDetailContentComponent {
 
   @Input() recipe: Recipe;
+
 
 }

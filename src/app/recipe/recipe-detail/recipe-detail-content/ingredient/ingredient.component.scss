@@ -1,0 +1,13 @@
+:host {
+  height: 60px;
+  width: max-content;
+  padding: 0 20px;
+
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 4px solid white;
+    margin-right: 10px;
+  }
+}

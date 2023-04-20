@@ -1,4 +1,11 @@
-<img alt="Image de la recette" [src]="recipe.image" *ngIf="recipe.image; else sampleImage">
+<img alt="Image de la recette" [src]="recipe.image" *ngIf="recipe.image; else googleImage">
+
+<ng-template #googleImage>
+  <ng-container *ngIf="(googleImage$ | async) as image; else sampleImage">
+    <img alt="ingredient" [src]="image"/>
+  </ng-container>
+</ng-template>
+
 <ng-template #sampleImage>
   <img alt="Image de la recette" src="/assets/images/cooking.jpeg">
 </ng-template>
